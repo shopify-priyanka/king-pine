@@ -1,0 +1,85 @@
+<section class="page-section">
+  <div class="container">
+    <div class="page-content">
+      <h1 class="page-title serif">{{ page.title }}</h1>
+      <div class="page-body">
+        {{ page.content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-section {
+    padding: 8rem 0 4rem;
+  }
+
+  .page-content {
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .page-body {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(26, 46, 38, 0.8);
+  }
+
+  .page-body h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .page-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+  }
+
+  .page-body p {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-body ul,
+  .page-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .page-body li {
+    margin-bottom: 0.5rem;
+  }
+
+  .page-body a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+  }
+
+  .page-body a:hover {
+    color: var(--color-accent);
+  }
+
+  .page-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin: 2rem 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": []
+}
+{% endschema %}

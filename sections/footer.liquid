@@ -1,0 +1,368 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-column footer-brand">
+          <div class="footer-logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span>{{ shop.name }}</span>
+          </div>
+          <p class="footer-description">
+            {{ section.settings.footer_description }}
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        {% if section.settings.menu_1 != blank %}
+          <div class="footer-column">
+            <h4 class="footer-heading">{{ section.settings.menu_1_title }}</h4>
+            <ul class="footer-links">
+              {% for link in linklists[section.settings.menu_1].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- Where to Buy -->
+        {% if section.settings.menu_2 != blank %}
+          <div class="footer-column">
+            <h4 class="footer-heading">{{ section.settings.menu_2_title }}</h4>
+            <ul class="footer-links">
+              {% for link in linklists[section.settings.menu_2].links %}
+                <li>
+                  <a
+                    href="{{ link.url }}"
+                    {% if link.url contains 'http' %}
+                      target="_blank" rel="noopener noreferrer"
+                    {% endif %}
+                  >
+                    {{ link.title }}
+                    {% if link.url contains 'http' %}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- Contact -->
+        <div class="footer-column">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact">
+            {% if section.settings.contact_address != blank %}
+              <li class="contact-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>{{ section.settings.contact_address }}</span>
+              </li>
+            {% endif %}
+            {% if section.settings.contact_email != blank %}
+              <li class="contact-item">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © {{ 'now' | date: '%Y' }}
+        {{ shop.name }}. All Rights Reserved.
+      </p>
+      <div class="footer-legal">
+        {% if section.settings.show_privacy_policy and shop.privacy_policy %}
+          <a href="{{ shop.privacy_policy.url }}">Privacy Policy</a>
+        {% endif %}
+        {% if section.settings.show_terms_of_service and shop.terms_of_service %}
+          <a href="{{ shop.terms_of_service.url }}">Terms of Service</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-main {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  @media (min-width: 768px) {
+    .footer-brand {
+      grid-column: span 1;
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .footer-logo span {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    font-family: var(--font-heading);
+  }
+
+  .footer-description {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-heading {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 1rem;
+  }
+
+  .footer-links a {
+    color: var(--color-background);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    color: white;
+  }
+
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .contact-item svg {
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: var(--color-background);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-item a:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom {
+      flex-direction: row;
+    }
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-legal a {
+    color: var(--color-background);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-legal a:hover {
+    color: white;
+    opacity: 1;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand Section"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_description",
+      "label": "Footer Description",
+      "default": "The king of clean since 1939. Providing powerful, concentrated industrial-strength cleaning solutions for homes and businesses globally."
+    },
+    {
+      "type": "header",
+      "content": "Menu Settings"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_title",
+      "label": "Menu 1 Title",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_title",
+      "label": "Menu 2 Title",
+      "default": "Where to Buy"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "header",
+      "content": "Contact Information"
+    },
+    {
+      "type": "text",
+      "id": "contact_address",
+      "label": "Address",
+      "default": "Headquarters: USA established since 1939"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email",
+      "default": "info@kingpinecleaning.com"
+    },
+    {
+      "type": "header",
+      "content": "Legal Links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_privacy_policy",
+      "label": "Show Privacy Policy",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_terms_of_service",
+      "label": "Show Terms of Service",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

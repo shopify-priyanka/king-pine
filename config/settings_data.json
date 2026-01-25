@@ -1,0 +1,11 @@
+{
+    "current": {
+        "color_primary": "#1a2e26",
+        "color_secondary": "#2d5a27",
+        "color_accent": "#a47c48",
+        "color_background": "#fdfbf7",
+        "color_text": "#1a2e26",
+        "font_heading": "'Libre Baskerville', serif",
+        "font_body": "'Inter', sans-serif"
+    }
+}

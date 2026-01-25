@@ -1,0 +1,384 @@
+<section class="benefits-section">
+  <div class="benefits-bg-effect"></div>
+
+  <div class="container benefits-container">
+    <div class="benefits-grid">
+      <div class="benefits-content">
+        {% if section.settings.badge_text != blank %}
+          <span class="benefits-badge">{{ section.settings.badge_text }}</span>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="benefits-heading serif">
+            {{ section.settings.heading | newline_to_br }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="benefits-description">{{ section.settings.description }}</p>
+        {% endif %}
+
+        <div class="benefits-list">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'benefit' %}
+                <div class="benefit-item" {{ block.shopify_attributes }}>
+                  <div class="benefit-icon">
+                    {% if block.settings.icon == 'power' %}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
+                    {% elsif block.settings.icon == 'droplets' %}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                      </svg>
+                    {% elsif block.settings.icon == 'shield' %}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                    {% elsif block.settings.icon == 'clock' %}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                    {% endif %}
+                  </div>
+                  <div class="benefit-content">
+                    <h4 class="benefit-title serif">{{ block.settings.title }}</h4>
+                    <p class="benefit-text">{{ block.settings.description }}</p>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if section.settings.image != blank %}
+        <div class="benefits-image">
+          <div class="benefits-image-wrapper">
+            <img
+              src="{{ section.settings.image | img_url: '800x1000' }}"
+              alt="{{ section.settings.heading }}"
+              loading="lazy"
+            >
+          </div>
+          {% if section.settings.show_badge %}
+            <div class="benefits-year-badge">
+              <div class="year-large serif">1939</div>
+              <div class="year-label">Established</div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-section {
+    padding: 8rem 0;
+    background-color: var(--color-primary);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefits-bg-effect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, var(--color-secondary) 0%, transparent 70%);
+  }
+
+  .benefits-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .benefits-badge {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .benefits-heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    line-height: 1.15;
+  }
+
+  .benefits-description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .benefits-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem 4rem;
+  }
+
+  @media (min-width: 640px) {
+    .benefits-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .benefit-icon {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-accent);
+  }
+
+  .benefit-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .benefit-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .benefits-image {
+    position: relative;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-image {
+      display: block;
+    }
+  }
+
+  .benefits-image-wrapper {
+    border-radius: 3rem;
+    overflow: hidden;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .benefits-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .benefits-year-badge {
+    position: absolute;
+    bottom: -2.5rem;
+    right: -2.5rem;
+    background-color: var(--color-accent);
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .year-large {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .year-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Benefits Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Legacy of Strength"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Industrial Strength.\nRefined Results."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Since 1939, King Pine has defined the benchmark for concentrated cleaning. We don't just clean surfaces; we restore environments."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show Year Badge",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "power",
+              "label": "Power/Lightning"
+            },
+            {
+              "value": "droplets",
+              "label": "Droplets"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            }
+          ],
+          "default": "power"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Industrial Power"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Concentrated to cut through built-up grease and heavy wax in seconds."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Section",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "power",
+            "title": "Industrial Power",
+            "description": "Concentrated to cut through built-up grease and heavy wax in seconds."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "droplets",
+            "title": "Pure Pine Oil",
+            "description": "The authentic, powerful solvent derived from nature's pine forests."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Surface Safety",
+            "description": "Effective for heavy-duty use while remaining free of harsh phosphorus."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "clock",
+            "title": "80+ Year History",
+            "description": "A trusted standard for generations of families and industries."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

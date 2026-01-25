@@ -1,0 +1,163 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Typography */
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+}
+
+/* Layout */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Buttons base (extended in theme.liquid) */
+button {
+  font-family: inherit;
+}
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Skip to content link */
+.skip-to-content-link {
+  position: absolute;
+  z-index: 9999;
+  color: white;
+  background-color: var(--color-primary);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.skip-to-content-link:focus {
+  clip: auto;
+  overflow: auto;
+  height: auto;
+  width: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+
+.focus-none:focus {
+  outline: none;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.serif {
+  font-family: var(--font-heading);
+}
+
+/* Component: Header (from header.liquid) */
+.header {
+  width: 100%;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Shopify Form Reset */
+form {
+  margin: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Placeholder SVG styling */
+.placeholder-svg {
+  background-color: var(--color-background);
+  fill: rgba(26, 46, 38, 0.1);
+}

@@ -1,0 +1,209 @@
+<section
+  class="hero-section"
+  style="background-image: url('{{ section.settings.background_image | img_url: '1920x' }}');"
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-gradient"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      {% if section.settings.badge_text != blank %}
+        <div class="hero-badge">
+          {{ section.settings.badge_text }}
+        </div>
+      {% endif %}
+
+      <h1 class="hero-title serif">
+        {{ section.settings.heading | newline_to_br }}
+      </h1>
+
+      {% if section.settings.subheading != blank %}
+        <p class="hero-subheading">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+
+      <div class="hero-buttons">
+        {% if section.settings.button_primary_text != blank %}
+          <a href="{{ section.settings.button_primary_link }}" class="btn btn-primary btn-lg">
+            {{ section.settings.button_primary_text }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        {% endif %}
+
+        {% if section.settings.button_secondary_text != blank %}
+          <a href="{{ section.settings.button_secondary_link }}" class="btn btn-secondary btn-lg">
+            {{ section.settings.button_secondary_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 750px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(26, 46, 38, 0.8), transparent);
+    z-index: 1;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 48rem;
+    color: white;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.375rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .hero-subheading {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 42rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-buttons {
+      flex-direction: row;
+    }
+  }
+
+  .btn-lg {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Trusted Excellence Since 1939"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The King\nof Clean."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Industrial-strength power met with the natural essence of pine. A legacy built on concentration, reliability, and uncompromising results."
+    },
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "Button Text",
+      "default": "Explore Products"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "Button Text",
+      "default": "Where to Buy"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}

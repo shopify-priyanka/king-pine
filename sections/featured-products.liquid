@@ -1,0 +1,295 @@
+<section class="featured-products-section">
+  <div class="container">
+    <div class="section-header">
+      {% if section.settings.heading != blank %}
+        <h2 class="section-title serif">{{ section.settings.heading }}</h2>
+      {% endif %}
+      <div class="section-divider"></div>
+      {% if section.settings.description != blank %}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <div class="products-grid">
+      {% if section.settings.collection != blank %}
+        {% assign collection = collections[section.settings.collection] %}
+        {% for product in collection.products limit: section.settings.products_to_show %}
+          <div class="product-card">
+            <div class="product-image-wrapper">
+              <a href="{{ product.url }}">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | img_url: '800x1000' }}"
+                    alt="{{ product.title }}"
+                    class="product-image"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <div class="product-image-placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+              </a>
+              <div class="product-overlay">
+                <a href="{{ product.url }}" class="btn btn-white"> View Product Details </a>
+              </div>
+            </div>
+
+            <div class="product-info">
+              {% if product.metafields.custom.scent %}
+                <h3 class="product-title serif">
+                  <a href="{{ product.url }}">{{ product.metafields.custom.scent }}</a>
+                </h3>
+              {% else %}
+                <h3 class="product-title serif">
+                  <a href="{{ product.url }}">{{ product.title }}</a>
+                </h3>
+              {% endif %}
+
+              {% if product.metafields.custom.short_description %}
+                <p class="product-description">{{ product.metafields.custom.short_description }}</p>
+              {% elsif product.description != blank %}
+                <p class="product-description">{{ product.description | strip_html | truncate: 100 }}</p>
+              {% endif %}
+
+              <a href="{{ product.url }}" class="product-link">
+                Learn More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..3) %}
+          <div class="product-card">
+            <div class="product-image-wrapper">
+              <div class="product-image-placeholder">
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title serif">Product Title</h3>
+              <p class="product-description">Product description will appear here.</p>
+              <a href="#" class="product-link">Learn More →</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-products-section {
+    padding: 8rem 0;
+    background-color: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .section-divider {
+    width: 5rem;
+    height: 0.375rem;
+    background-color: var(--color-accent);
+    margin: 0 auto 2rem;
+    border-radius: 9999px;
+  }
+
+  .section-description {
+    font-size: 1.25rem;
+    color: rgba(26, 46, 38, 0.6);
+    max-width: 42rem;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .product-image-wrapper {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 30px 60px -15px rgba(26, 46, 38, 0.15);
+    background-color: var(--color-background);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.1);
+  }
+
+  .product-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(26, 46, 38, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card:hover .product-overlay {
+    opacity: 1;
+  }
+
+  .btn-white {
+    background-color: white;
+    color: var(--color-primary);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+    transform: translateY(1rem);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .product-card:hover .btn-white {
+    transform: translateY(0);
+  }
+
+  .product-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s;
+  }
+
+  .product-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .product-card:hover .product-title a {
+    color: var(--color-secondary);
+  }
+
+  .product-description {
+    color: rgba(26, 46, 38, 0.6);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .product-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+
+  .product-link:hover {
+    gap: 0.75rem;
+  }
+
+  .product-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Product Families"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Three distinct concentrations. One standard of absolute industrial power. Crafted for professionals, perfected for the home."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Products to Show",
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

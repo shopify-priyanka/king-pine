@@ -1,0 +1,295 @@
+<section class="comparison-section">
+  <div class="container">
+    <div class="comparison-grid">
+      <div class="comparison-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="comparison-heading serif">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="comparison-description">{{ section.settings.description }}</p>
+        {% endif %}
+
+        {% if section.settings.badge_text != blank %}
+          <div class="comparison-badge">
+            <div class="badge-line"></div>
+            <span class="badge-text">{{ section.settings.badge_text }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="comparison-slider-wrapper">
+        <div class="comparison-slider" id="comparison-slider-{{ section.id }}">
+          {% if section.settings.before_image != blank %}
+            <img
+              src="{{ section.settings.before_image | img_url: '1200x' }}"
+              alt="Before cleaning"
+              class="comparison-before"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="comparison-placeholder comparison-before">Before Image</div>
+          {% endif %}
+
+          <div class="comparison-label comparison-label-before">Before</div>
+
+          <div class="comparison-after-wrapper" style="clip-path: inset(0 50% 0 0);">
+            {% if section.settings.after_image != blank %}
+              <img
+                src="{{ section.settings.after_image | img_url: '1200x' }}"
+                alt="After cleaning"
+                class="comparison-after"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="comparison-placeholder comparison-after">After Image</div>
+            {% endif %}
+
+            <div class="comparison-label comparison-label-after">After</div>
+          </div>
+
+          <div class="comparison-handle" style="left: 50%;">
+            <div class="handle-button">
+              <div class="handle-arrows">
+                <div class="handle-line"></div>
+                <div class="handle-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    padding: 8rem 0;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem 6rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  .comparison-heading {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .comparison-description {
+    font-size: 1.25rem;
+    color: rgba(26, 46, 38, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .comparison-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-accent);
+  }
+
+  .badge-line {
+    width: 3rem;
+    height: 1px;
+    background-color: rgba(164, 124, 72, 0.3);
+  }
+
+  .badge-text {
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .comparison-slider {
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -10px rgba(26, 46, 38, 0.15);
+    cursor: ew-resize;
+    user-select: none;
+    touch-action: pan-y;
+    border: 1px solid rgba(26, 46, 38, 0.05);
+  }
+
+  .comparison-before,
+  .comparison-after {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .comparison-before {
+    filter: grayscale(0.5) brightness(0.75);
+  }
+
+  .comparison-placeholder {
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .comparison-after-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .comparison-label {
+    position: absolute;
+    bottom: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    color: white;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 10;
+  }
+
+  .comparison-label-before {
+    left: 1.5rem;
+  }
+
+  .comparison-label-after {
+    right: 1.5rem;
+    background-color: var(--color-secondary);
+  }
+
+  .comparison-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .handle-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid rgba(26, 46, 38, 0.1);
+  }
+
+  .handle-arrows {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .handle-line {
+    width: 2px;
+    height: 0.75rem;
+    background-color: rgba(164, 124, 72, 0.5);
+    border-radius: 9999px;
+  }
+</style>
+
+<script>
+  (function () {
+    const slider = document.getElementById('comparison-slider-{{ section.id }}');
+    if (!slider) return;
+
+    const afterWrapper = slider.querySelector('.comparison-after-wrapper');
+    const handle = slider.querySelector('.comparison-handle');
+
+    function updateSlider(clientX) {
+      const rect = slider.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+
+      afterWrapper.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      handle.style.left = `${percentage}%`;
+    }
+
+    slider.addEventListener('mousemove', (e) => {
+      if (e.buttons === 1) {
+        updateSlider(e.clientX);
+      }
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+      updateSlider(e.touches[0].clientX);
+    });
+
+    slider.addEventListener('click', (e) => {
+      updateSlider(e.clientX);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Before/After Comparison",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "See the Difference"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Witness the restorative power of King Pine. From built-up grease and dulling wax to a clean, fresh shine in minutes. Our industrial-strength formula works where others fail."
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "The King Pine Standard"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before/After Comparison"
+    }
+  ]
+}
+{% endschema %}

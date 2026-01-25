@@ -1,0 +1,82 @@
+[
+    {
+        "name": "theme_info",
+        "theme_name": "King Pine",
+        "theme_version": "1.0.0",
+        "theme_author": "King Pine",
+        "theme_documentation_url": "https://github.com/",
+        "theme_support_url": "https://github.com/"
+    },
+    {
+        "name": "Colors",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Brand Colors"
+            },
+            {
+                "type": "color",
+                "id": "color_primary",
+                "label": "Primary Color (Deep Pine)",
+                "default": "#1a2e26"
+            },
+            {
+                "type": "color",
+                "id": "color_secondary",
+                "label": "Secondary Color (Pine Green)",
+                "default": "#2d5a27"
+            },
+            {
+                "type": "color",
+                "id": "color_accent",
+                "label": "Accent Color (Gold)",
+                "default": "#a47c48"
+            },
+            {
+                "type": "color",
+                "id": "color_background",
+                "label": "Background Color",
+                "default": "#fdfbf7"
+            },
+            {
+                "type": "color",
+                "id": "color_text",
+                "label": "Text Color",
+                "default": "#1a2e26"
+            }
+        ]
+    },
+    {
+        "name": "Typography",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Font Families"
+            },
+            {
+                "type": "select",
+                "id": "font_heading",
+                "label": "Heading Font",
+                "options": [
+                    {
+                        "value": "'Libre Baskerville', serif",
+                        "label": "Libre Baskerville"
+                    }
+                ],
+                "default": "'Libre Baskerville', serif"
+            },
+            {
+                "type": "select",
+                "id": "font_body",
+                "label": "Body Font",
+                "options": [
+                    {
+                        "value": "'Inter', sans-serif",
+                        "label": "Inter"
+                    }
+                ],
+                "default": "'Inter', sans-serif"
+            }
+        ]
+    }
+]

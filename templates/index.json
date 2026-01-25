@@ -1,0 +1,170 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero",
+            "settings": {
+                "badge_text": "Trusted Excellence Since 1939",
+                "heading": "The King\nof Clean.",
+                "subheading": "Industrial-strength power met with the natural essence of pine. A legacy built on concentration, reliability, and uncompromising results.",
+                "button_primary_text": "Explore Products",
+                "button_primary_link": "/collections/all",
+                "button_secondary_text": "Where to Buy",
+                "button_secondary_link": "/pages/where-to-buy"
+            }
+        },
+        "featured-products": {
+            "type": "featured-products",
+            "settings": {
+                "heading": "Our Product Families",
+                "description": "Three distinct concentrations. One standard of absolute industrial power. Crafted for professionals, perfected for the home.",
+                "products_to_show": 3
+            }
+        },
+        "benefits": {
+            "type": "benefits",
+            "blocks": {
+                "benefit-1": {
+                    "type": "benefit",
+                    "settings": {
+                        "icon": "power",
+                        "title": "Industrial Power",
+                        "description": "Concentrated to cut through built-up grease and heavy wax in seconds."
+                    }
+                },
+                "benefit-2": {
+                    "type": "benefit",
+                    "settings": {
+                        "icon": "droplets",
+                        "title": "Pure Pine Oil",
+                        "description": "The authentic, powerful solvent derived from nature's pine forests."
+                    }
+                },
+                "benefit-3": {
+                    "type": "benefit",
+                    "settings": {
+                        "icon": "shield",
+                        "title": "Surface Safety",
+                        "description": "Effective for heavy-duty use while remaining free of harsh phosphorus."
+                    }
+                },
+                "benefit-4": {
+                    "type": "benefit",
+                    "settings": {
+                        "icon": "clock",
+                        "title": "80+ Year History",
+                        "description": "A trusted standard for generations of families and industries."
+                    }
+                }
+            },
+            "block_order": [
+                "benefit-1",
+                "benefit-2",
+                "benefit-3",
+                "benefit-4"
+            ],
+            "settings": {
+                "badge_text": "Legacy of Strength",
+                "heading": "Industrial Strength.\nRefined Results.",
+                "description": "Since 1939, King Pine has defined the benchmark for concentrated cleaning. We don't just clean surfaces; we restore environments.",
+                "show_badge": true
+            }
+        },
+        "comparison": {
+            "type": "comparison-slider",
+            "settings": {
+                "heading": "See the Difference",
+                "description": "Witness the restorative power of King Pine. From built-up grease and dulling wax to a clean, fresh shine in minutes. Our industrial-strength formula works where others fail.",
+                "badge_text": "The King Pine Standard"
+            }
+        },
+        "use-cases": {
+            "type": "use-cases",
+            "blocks": {
+                "use-1": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "home",
+                        "label": "Home"
+                    }
+                },
+                "use-2": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "kitchen",
+                        "label": "Kitchens"
+                    }
+                },
+                "use-3": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "garage",
+                        "label": "Garages"
+                    }
+                },
+                "use-4": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "industrial",
+                        "label": "Industrial"
+                    }
+                },
+                "use-5": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "school",
+                        "label": "Institutional"
+                    }
+                },
+                "use-6": {
+                    "type": "use_case",
+                    "settings": {
+                        "icon": "commercial",
+                        "label": "Commercial"
+                    }
+                }
+            },
+            "block_order": [
+                "use-1",
+                "use-2",
+                "use-3",
+                "use-4",
+                "use-5",
+                "use-6"
+            ],
+            "settings": {
+                "heading": "Versatile Excellence",
+                "description": "From residential kitchens to high-traffic industrial facilities."
+            }
+        },
+        "text-content": {
+            "type": "text-content",
+            "settings": {
+                "background_color": "white",
+                "text_alignment": "center",
+                "overline": "Our History",
+                "heading": "Built to Last.",
+                "description": "<p>In 1939, King Pine was founded on a simple premise: a cleaner should be as powerful as the natural elements it contains. Decades of change haven't altered our original formula's efficacy. Today, we remain the first choice for those who demand absolute cleanliness.</p>",
+                "button_text": "Discover Our Heritage",
+                "button_link": "/pages/about"
+            }
+        },
+        "cta": {
+            "type": "cta",
+            "settings": {
+                "heading": "Experience the Clean.",
+                "description": "Conveniently available in single units and bulk multi-packs via our official Amazon marketplace.",
+                "button_text": "Buy King Pine on Amazon",
+                "button_link": "/pages/where-to-buy"
+            }
+        }
+    },
+    "order": [
+        "hero",
+        "featured-products",
+        "benefits",
+        "comparison",
+        "use-cases",
+        "text-content",
+        "cta"
+    ]
+}
