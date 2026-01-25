@@ -27,7 +27,7 @@
       "settings": {
         "heading": "Our Product Families",
         "description": "Three distinct concentrations. One standard of absolute industrial power. Crafted for professionals, perfected for the home.",
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 3
       }
     },
@@ -77,6 +77,7 @@
         "badge_text": "Legacy of Strength",
         "heading": "Industrial Strength.\nRefined Results.",
         "description": "Since 1939, King Pine has defined the benchmark for concentrated cleaning. We don't just clean surfaces; we restore environments.",
+        "image": "shopify://shop_images/photo-1584622650111-993a426fbf0a.jpg",
         "show_badge": true
       }
     },
@@ -85,7 +86,9 @@
       "settings": {
         "heading": "See the Difference",
         "description": "Witness the restorative power of King Pine. From built-up grease and dulling wax to a clean, fresh shine in minutes. Our industrial-strength formula works where others fail.",
-        "badge_text": "The King Pine Standard"
+        "badge_text": "The King Pine Standard",
+        "before_image": "shopify://shop_images/ChatGPT_Image_Jan_25_2026_09_56_55_AM.png",
+        "after_image": "shopify://shop_images/ChatGPT_Image_Jan_25_2026_09_56_58_AM.png"
       }
     },
     "use-cases": {

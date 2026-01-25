@@ -1,11 +1,47 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "current": {
-        "color_primary": "#1a2e26",
-        "color_secondary": "#2d5a27",
-        "color_accent": "#a47c48",
-        "color_background": "#fdfbf7",
-        "color_text": "#1a2e26",
-        "font_heading": "'Libre Baskerville', serif",
-        "font_body": "'Inter', sans-serif"
-    }
+  "current": {
+    "color_primary": "#1a2e26",
+    "color_secondary": "#2d5a27",
+    "color_accent": "#a47c48",
+    "color_background": "#fdfbf7",
+    "color_text": "#1a2e26",
+    "font_heading": "'Libre Baskerville', serif",
+    "font_body": "'Inter', sans-serif",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "enable_sticky_header": true,
+          "show_cta_button": true,
+          "cta_button_text": "Buy on Amazon",
+          "cta_button_link": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_description": "The king of clean since 1939. Providing powerful, concentrated industrial-strength cleaning solutions for homes and businesses globally.",
+          "menu_1_title": "Quick Links",
+          "menu_1": "footer",
+          "menu_2_title": "Where to Buy",
+          "menu_2": "customer-account-main-menu",
+          "contact_address": "Headquarters: USA established since 1939",
+          "contact_email": "info@kingpinecleaning.com",
+          "show_privacy_policy": true,
+          "show_terms_of_service": true
+        }
+      }
+    },
+    "content_for_index": []
+  }
 }
