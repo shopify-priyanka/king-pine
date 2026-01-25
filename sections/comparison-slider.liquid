@@ -22,9 +22,11 @@
         <div class="comparison-slider" id="comparison-slider-{{ section.id }}">
           {% if section.settings.before_image != blank %}
             <img
-              src="{{ section.settings.before_image | img_url: '1200x' }}"
+              src="{{ section.settings.before_image | image_url: width: 1200 }}"
               alt="Before cleaning"
               class="comparison-before"
+              width="1200"
+              height="675"
               loading="lazy"
             >
           {% else %}
@@ -36,9 +38,11 @@
           <div class="comparison-after-wrapper" style="clip-path: inset(0 50% 0 0);">
             {% if section.settings.after_image != blank %}
               <img
-                src="{{ section.settings.after_image | img_url: '1200x' }}"
+                src="{{ section.settings.after_image | image_url: width: 1200 }}"
                 alt="After cleaning"
                 class="comparison-after"
+                width="1200"
+                height="675"
                 loading="lazy"
               >
             {% else %}
@@ -227,6 +231,10 @@
 
     const afterWrapper = slider.querySelector('.comparison-after-wrapper');
     const handle = slider.querySelector('.comparison-handle');
+    const handleButton = slider.querySelector('.handle-button');
+
+    let isDragging = false;
+    let isHovering = false;
 
     function updateSlider(clientX) {
       const rect = slider.getBoundingClientRect();
@@ -237,19 +245,66 @@
       handle.style.left = `${percentage}%`;
     }
 
+    // Desktop: Hover functionality
+    slider.addEventListener('mouseenter', () => {
+      isHovering = true;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isHovering = false;
+    });
+
     slider.addEventListener('mousemove', (e) => {
-      if (e.buttons === 1) {
+      // Update on hover (when not dragging) OR when actively dragging
+      if (isHovering && !isDragging) {
+        updateSlider(e.clientX);
+      } else if (isDragging) {
         updateSlider(e.clientX);
       }
     });
 
-    slider.addEventListener('touchmove', (e) => {
-      updateSlider(e.touches[0].clientX);
+    // Desktop: Click and drag functionality
+    slider.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      updateSlider(e.clientX);
+      e.preventDefault(); // Prevent text selection
     });
 
-    slider.addEventListener('click', (e) => {
-      updateSlider(e.clientX);
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
     });
+
+    // Mobile: Touch functionality
+    slider.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      updateSlider(e.touches[0].clientX);
+      e.preventDefault(); // Prevent scrolling while interacting
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        updateSlider(e.touches[0].clientX);
+        e.preventDefault();
+      }
+    });
+
+    slider.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    // Handle button specific interactions
+    if (handleButton) {
+      handleButton.style.pointerEvents = 'auto';
+      handleButton.style.cursor = 'grab';
+
+      handleButton.addEventListener('mousedown', () => {
+        handleButton.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mouseup', () => {
+        handleButton.style.cursor = 'grab';
+      });
+    }
   })();
 </script>
 
