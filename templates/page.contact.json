@@ -24,7 +24,7 @@
         "contact_info_QFJGij": {
           "type": "contact_info",
           "settings": {
-            "icon": "mail",
+            "icon": "phone",
             "title": "Commercial Support",
             "text": "+1 (800) KING-PINE",
             "subtext": "Operations: Monday – Friday, 9am – 5pm EST"
@@ -33,7 +33,7 @@
         "contact_info_bnfNhe": {
           "type": "contact_info",
           "settings": {
-            "icon": "mail",
+            "icon": "map",
             "title": "Global Headquarters",
             "text": "King Pine Products Corporation",
             "subtext": "USA Manufacturing Excellence Since 1939"
