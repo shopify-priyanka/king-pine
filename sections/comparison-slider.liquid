@@ -37,7 +37,7 @@
             <div class="comparison-label comparison-label-before">Before</div>
           </div>
 
-          <div class="comparison-after-wrapper" style="clip-path: inset(0 50% 0 0);">
+          <div class="comparison-after-wrapper" style="clip-path: inset(0 0 0 50%);">
             {% if section.settings.after_image != blank %}
               <img
                 src="{{ section.settings.after_image | image_url: width: 1200 }}"
@@ -253,7 +253,7 @@
       // Clip the before side (left) - hide the right portion
       beforeWrapper.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
       // Clip the after side (right) - hide the left portion
-      afterWrapper.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      afterWrapper.style.clipPath = `inset(0 0 0 ${percentage}%)`;
       handle.style.left = `${percentage}%`;
     }
 
