@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product_detail": {
+      "type": "product-detail",
+      "blocks": {
+        "detail_card_mEGRVX": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Environmental Compliance",
+            "text": "Engineered for professionals who prioritize both results and responsibility. Our phosphorus-free formula ensures heavy-duty cleanup without compromising environment standards."
+          }
+        },
+        "detail_card_Xp8zYF": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "zap",
+            "title": "Concentration Matrix",
+            "text": "King Pine delivers maximum active ingredients. This results in superior grease emulsification and allows for strategic dilution based on task intensity."
+          }
+        },
+        "detail_card_q8FTXV": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "info",
+            "title": "Technical Usage",
+            "text": "Optimized for use with floor scrubbers, industrial sprayers, or traditional mopping systems. Neutralizes odors at the source for a truly sanitary finish."
+          }
+        }
+      },
+      "block_order": [
+        "detail_card_mEGRVX",
+        "detail_card_Xp8zYF",
+        "detail_card_q8FTXV"
+      ],
+      "settings": {
+        "back_link": "shopify://pages/products",
+        "back_text": "Back to All Products",
+        "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_1.png",
+        "badge": "Gold Pine Edition",
+        "name": "Concentrated  Pine Oil",
+        "scent": "Gold",
+        "description": "Gold Pine offers a brighter, fresher take on our classic pine formula. It maintains the same heavy-duty grease-cutting capabilities but with a long-lasting scent profile designed for modern homes and professional environments alike.",
+        "features": "Fresh long-lasting pine fragrance,\n      Superior grease-cutting formula,\n      Multi-surface versatility,\n      Concentrated value,\n      Leaves no dulling residue",
+        "use_cases": "Kitchens,\nBathrooms,\nJanitorial Services,\nWalls,\nLockers",
+        "sizes": "8 Fl Oz,\n12 Fl Oz ,\n16 Fl Oz ,\n20 Ounce ,\n32 Fl Oz ,\n64 Fl Oz ,\n128 Fl Oz ,\nPack of 2,",
+        "amazon_link": "https://www.amazon.com/dp/B07DFQGVQR/"
+      }
+    }
+  },
+  "order": [
+    "product_detail"
+  ]
+}
