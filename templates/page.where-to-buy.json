@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "where_to_buy": {
+            "type": "where-to-buy-page",
+            "settings": {}
+        }
+    },
+    "order": [
+        "where_to_buy"
+    ]
+}

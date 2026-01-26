@@ -89,8 +89,10 @@
         <div class="benefits-image">
           <div class="benefits-image-wrapper">
             <img
-              src="{{ section.settings.image | img_url: '800x1000' }}"
+              src="{{ section.settings.image | image_url: width: 800, height: 1000 }}"
               alt="{{ section.settings.heading }}"
+              width="800"
+              height="1000"
               loading="lazy"
             >
           </div>

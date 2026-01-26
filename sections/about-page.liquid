@@ -1,0 +1,431 @@
+<section class="about-page">
+  <div class="container">
+    <!-- Hero Header -->
+    <div class="about-header">
+      {% if section.settings.badge != blank %}
+        <span class="about-badge">{{ section.settings.badge }}</span>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h1 class="about-heading serif">{{ section.settings.heading | newline_to_br }}</h1>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="about-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Story Section -->
+    <div class="about-story">
+      <div class="story-grid">
+        <div class="story-content">
+          {% if section.settings.story_heading != blank %}
+            <h2 class="story-heading serif">{{ section.settings.story_heading | newline_to_br }}</h2>
+          {% endif %}
+          {% if section.settings.story_text != blank %}
+            <div class="story-text">
+              {{ section.settings.story_text }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="story-image">
+          <div class="image-decoration"></div>
+          {% if section.settings.story_image != blank %}
+            <img
+              src="{{ section.settings.story_image | image_url: width: 1000 }}"
+              alt="Our Heritage"
+              width="1000"
+              height="800"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="image-placeholder">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Values Grid -->
+    {% if section.blocks.size > 0 %}
+      <div class="values-grid">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'value_card' %}
+              <div class="value-card" {{ block.shopify_attributes }}>
+                {% if block.settings.icon == 'history' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                {% elsif block.settings.icon == 'shield' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                {% elsif block.settings.icon == 'target' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                {% elsif block.settings.icon == 'users' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                {% endif %}
+                <h4 class="value-title serif">{{ block.settings.title }}</h4>
+                <p class="value-text">{{ block.settings.text }}</p>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Quote Section -->
+    {% if section.settings.quote_text != blank %}
+      <div class="quote-section">
+        <div class="quote-line"></div>
+        <p class="quote-text serif">{{ section.settings.quote_text }}</p>
+        {% if section.settings.quote_attribution != blank %}
+          <div class="quote-attribution">{{ section.settings.quote_attribution }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .about-page {
+    padding: 10rem 0 8rem;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .about-badge {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .about-heading {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-heading span {
+    color: var(--color-secondary);
+  }
+
+  .about-subheading {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    color: rgba(26, 46, 38, 0.6);
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .about-story {
+    background-color: white;
+    padding: 10rem 0;
+    margin: 0 -100vw 8rem;
+    padding-left: 100vw;
+    padding-right: 100vw;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .story-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .story-content {
+      order: 1;
+    }
+    .story-image {
+      order: 2;
+    }
+  }
+
+  .story-heading {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .story-text {
+    font-size: 1.125rem;
+    color: rgba(26, 46, 38, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .story-text p {
+    margin-bottom: 2.5rem;
+  }
+
+  .story-image {
+    position: relative;
+  }
+
+  .image-decoration {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(164, 124, 72, 0.05);
+    border-radius: 4rem;
+    transform: rotate(-3deg);
+  }
+
+  .story-image img {
+    position: relative;
+    width: 100%;
+    border-radius: 4rem;
+    box-shadow: 0 50px 100px -20px rgba(26, 46, 38, 0.2);
+    border: 8px solid white;
+  }
+
+  .image-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 4rem;
+    background-color: var(--color-background);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 12rem;
+  }
+
+  @media (min-width: 768px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .values-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .value-card {
+    padding: 3rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 3rem;
+    transition: all 0.5s;
+    box-shadow: 0 20px 60px -10px rgba(26, 46, 38, 0.2);
+  }
+
+  .value-card:hover {
+    background-color: var(--color-secondary);
+  }
+
+  .value-card svg {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+    transition: transform 0.5s;
+  }
+
+  .value-card:hover svg {
+    transform: scale(1.1) rotate(-6deg);
+  }
+
+  .value-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .value-text {
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+
+  .quote-section {
+    text-align: center;
+    max-width: 64rem;
+    margin: 0 auto;
+  }
+
+  .quote-line {
+    width: 4rem;
+    height: 1px;
+    background-color: rgba(164, 124, 72, 0.3);
+    margin: 0 auto 4rem;
+  }
+
+  .quote-text {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    color: rgba(26, 46, 38, 0.8);
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 3rem;
+  }
+
+  .quote-attribution {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "About Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Page Header"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Our Foundation"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Eighty Years of\nAbsolute Clean."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Since 1939, King Pine has remained a steadfast household name, proving that industrial-grade strength and natural integrity are timeless."
+    },
+    {
+      "type": "header",
+      "content": "Story Section"
+    },
+    {
+      "type": "textarea",
+      "id": "story_heading",
+      "label": "Story Heading",
+      "default": "Authenticity in\nEvery Bottle."
+    },
+    {
+      "type": "richtext",
+      "id": "story_text",
+      "label": "Story Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Story Image"
+    },
+    {
+      "type": "header",
+      "content": "Quote Section"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "True cleanliness doesn't hide behind artificial perfumes. It begins with the authentic power of pine oil."
+    },
+    {
+      "type": "text",
+      "id": "quote_attribution",
+      "label": "Quote Attribution",
+      "default": "The King Pine Family Standard"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_card",
+      "name": "Value Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "history", "label": "History/Clock" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "target", "label": "Target" },
+            { "value": "users", "label": "Users/People" }
+          ],
+          "default": "history"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Page"
+    }
+  ]
+}
+{% endschema %}

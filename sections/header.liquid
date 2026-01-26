@@ -9,9 +9,11 @@
           <a href="{{ routes.root_url }}" class="logo-link">
             {% if section.settings.logo != blank %}
               <img
-                src="{{ section.settings.logo | img_url: '200x' }}"
+                src="{{ section.settings.logo | image_url: width: 200 }}"
                 alt="{{ shop.name }}"
                 class="logo-image"
+                width="200"
+                height="60"
                 loading="lazy"
               >
             {% else %}

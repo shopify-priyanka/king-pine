@@ -1,0 +1,483 @@
+<section class="contact-page">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left Column - Info -->
+      <div class="contact-info">
+        {% if section.settings.badge != blank %}
+          <span class="contact-badge">{{ section.settings.badge }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h1 class="contact-heading serif">{{ section.settings.heading }}</h1>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="contact-subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="contact-details">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'contact_info' %}
+                  <div class="contact-item" {{ block.shopify_attributes }}>
+                    <div class="contact-icon">
+                      {% if block.settings.icon == 'mail' %}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                          <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                      {% elsif block.settings.icon == 'phone' %}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      {% elsif block.settings.icon == 'map' %}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      {% endif %}
+                    </div>
+                    <div class="contact-content">
+                      <h3 class="contact-title serif">{{ block.settings.title }}</h3>
+                      <p class="contact-text">{{ block.settings.text }}</p>
+                      {% if block.settings.subtext != blank %}
+                        <p class="contact-subtext">{{ block.settings.subtext }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Right Column - Form -->
+      <div class="contact-form-wrapper">
+        <h2 class="form-heading serif">{{ section.settings.form_heading | default: 'Send an Inquiry' }}</h2>
+
+        <form class="contact-form" accept-charset="UTF-8" action="/contact#contact_form" method="post">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="utf8" value="✓">
+
+          {% if form.posted_successfully? %}
+            <div class="form-success">
+              <p>Thank you for contacting us. We will get back to you as soon as possible.</p>
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="form-errors">
+              <p>{{ form.errors | default_errors }}</p>
+            </div>
+          {% endif %}
+
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">First Name</label>
+              <input
+                type="text"
+                name="contact[first_name]"
+                class="form-input"
+                placeholder="E.g. Alexander"
+                required
+              >
+            </div>
+            <div class="form-field">
+              <label class="form-label">Last Name</label>
+              <input
+                type="text"
+                name="contact[last_name]"
+                class="form-input"
+                placeholder="E.g. Sterling"
+              >
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Corporate Email</label>
+            <input
+              type="email"
+              name="contact[email]"
+              class="form-input"
+              placeholder="professional@company.com"
+              required
+            >
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Inquiry Category</label>
+            <select name="contact[category]" class="form-select">
+              <option>Commercial Wholesale</option>
+              <option>Product Technical Support</option>
+              <option>Distribution Partnerships</option>
+              <option>Retail Feedback</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Message</label>
+            <textarea
+              name="contact[body]"
+              class="form-textarea"
+              rows="5"
+              placeholder="How may our specialists assist you today?"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            Transmit Message
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-page {
+    padding: 10rem 0 8rem;
+    background-color: var(--color-background);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+    }
+  }
+
+  .contact-badge {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .contact-heading {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .contact-subheading {
+    font-size: 1.25rem;
+    color: rgba(26, 46, 38, 0.6);
+    margin-bottom: 4rem;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 28rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(26, 46, 38, 0.05);
+    border: 1px solid rgba(26, 46, 38, 0.05);
+    display: flex;
+    align-items: center;
+    justify-center;
+    transition: all 0.5s;
+  }
+
+  .contact-item:hover .contact-icon {
+    background-color: var(--color-primary);
+  }
+
+  .contact-icon svg {
+    color: var(--color-accent);
+    transition: color 0.5s;
+  }
+
+  .contact-item:hover .contact-icon svg {
+    color: white;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .contact-text {
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    opacity: 0.8;
+  }
+
+  .contact-subtext {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+    margin-top: 0.25rem;
+    font-weight: 700;
+  }
+
+  .contact-form-wrapper {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 4rem;
+    box-shadow: 0 60px 120px -20px rgba(26, 46, 38, 0.12);
+    border: 1px solid rgba(26, 46, 38, 0.05);
+  }
+
+  @media (min-width: 768px) {
+    .contact-form-wrapper {
+      padding: 5rem;
+    }
+  }
+
+  .form-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(26, 46, 38, 0.4);
+    margin-left: 0.25rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background-color: var(--color-background);
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 4px rgba(26, 46, 38, 0.05);
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    background-color: white;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a2e26' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    padding-right: 3rem;
+  }
+
+  .form-textarea {
+    resize: none;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-center;
+    gap: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 20px 60px -10px rgba(26, 46, 38, 0.25);
+    transition: all 0.3s;
+  }
+
+  .form-submit:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 25px 70px -10px rgba(26, 46, 38, 0.3);
+  }
+
+  .form-success {
+    padding: 1.5rem;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 1rem;
+    border: 1px solid #c3e6cb;
+  }
+
+  .form-errors {
+    padding: 1.5rem;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 1rem;
+    border: 1px solid #f5c6cb;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Page Header"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Connect With Us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our team of cleaning specialists is available to discuss product specifications, safety data, and commercial fulfillment."
+    },
+    {
+      "type": "header",
+      "content": "Contact Form"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form Heading",
+      "default": "Send an Inquiry"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_info",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "mail", "label": "Mail/Email" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "map", "label": "Map/Location" }
+          ],
+          "default": "mail"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Main Text"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Page"
+    }
+  ]
+}
+{% endschema %}

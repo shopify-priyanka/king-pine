@@ -20,20 +20,22 @@
 
       <div class="comparison-slider-wrapper">
         <div class="comparison-slider" id="comparison-slider-{{ section.id }}">
-          {% if section.settings.before_image != blank %}
-            <img
-              src="{{ section.settings.before_image | image_url: width: 1200 }}"
-              alt="Before cleaning"
-              class="comparison-before"
-              width="1200"
-              height="675"
-              loading="lazy"
-            >
-          {% else %}
-            <div class="comparison-placeholder comparison-before">Before Image</div>
-          {% endif %}
+          <div class="comparison-before-wrapper" style="clip-path: inset(0 50% 0 0);">
+            {% if section.settings.before_image != blank %}
+              <img
+                src="{{ section.settings.before_image | image_url: width: 1200 }}"
+                alt="Before cleaning"
+                class="comparison-before"
+                width="1200"
+                height="675"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="comparison-placeholder comparison-before">Before Image</div>
+            {% endif %}
 
-          <div class="comparison-label comparison-label-before">Before</div>
+            <div class="comparison-label comparison-label-before">Before</div>
+          </div>
 
           <div class="comparison-after-wrapper" style="clip-path: inset(0 50% 0 0);">
             {% if section.settings.after_image != blank %}
@@ -154,6 +156,12 @@
     font-weight: 600;
   }
 
+  .comparison-before-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
   .comparison-after-wrapper {
     position: absolute;
     inset: 0;
@@ -229,6 +237,7 @@
     const slider = document.getElementById('comparison-slider-{{ section.id }}');
     if (!slider) return;
 
+    const beforeWrapper = slider.querySelector('.comparison-before-wrapper');
     const afterWrapper = slider.querySelector('.comparison-after-wrapper');
     const handle = slider.querySelector('.comparison-handle');
     const handleButton = slider.querySelector('.handle-button');
@@ -241,6 +250,9 @@
       const x = clientX - rect.left;
       const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
 
+      // Clip the before side (left) - hide the right portion
+      beforeWrapper.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+      // Clip the after side (right) - hide the left portion
       afterWrapper.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
       handle.style.left = `${percentage}%`;
     }

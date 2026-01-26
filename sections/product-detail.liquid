@@ -1,0 +1,572 @@
+<section class="product-detail-section">
+  <div class="container">
+    <!-- Back Link -->
+    {% if section.settings.back_link != blank %}
+      <a href="{{ section.settings.back_link }}" class="back-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        {{ section.settings.back_text | default: 'Back to Arsenal' }}
+      </a>
+    {% endif %}
+
+    <!-- Product Grid -->
+    <div class="product-detail-grid">
+      <!-- Product Image -->
+      <div class="product-detail-image">
+        <div class="image-shadow"></div>
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            alt="{{ section.settings.name }}"
+            width="1000"
+            height="1250"
+            loading="eager"
+          >
+        {% else %}
+          <div class="image-placeholder">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Product Content -->
+      <div class="product-detail-content">
+        {% if section.settings.badge != blank %}
+          <span class="product-badge">{{ section.settings.badge }}</span>
+        {% endif %}
+
+        {% if section.settings.name != blank %}
+          <h1 class="product-title serif">
+            {{ section.settings.name }}
+            {% if section.settings.scent != blank %}
+              <br>
+              <span class="product-scent">{{ section.settings.scent }}</span>
+            {% endif %}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <p class="product-desc">{{ section.settings.description }}</p>
+        {% endif %}
+
+        <!-- Features -->
+        {% if section.settings.features != blank %}
+          <div class="features-section">
+            <h3 class="features-heading">Primary Efficacy</h3>
+            <div class="features-list">
+              {% assign features = section.settings.features | split: ',' %}
+              {% for feature in features %}
+                <div class="feature-card">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <span>{{ feature | strip }}</span>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Use Cases -->
+        {% if section.settings.use_cases != blank %}
+          <div class="use-cases-section">
+            <h3 class="use-cases-heading">Industrial Applications</h3>
+            <div class="use-cases-tags">
+              {% assign use_cases = section.settings.use_cases | split: ',' %}
+              {% for use_case in use_cases %}
+                <span class="use-case-tag">{{ use_case | strip }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Sizes -->
+        {% if section.settings.sizes != blank %}
+          <div class="sizes-section">
+            <h3 class="sizes-heading">Fulfillment Formats</h3>
+            <div class="sizes-list">
+              {% assign sizes = section.settings.sizes | split: ',' %}
+              {% for size in sizes %}
+                <div class="size-badge">{{ size | strip }}</div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Amazon CTA -->
+        {% if section.settings.amazon_link != blank %}
+          <a
+            href="{{ section.settings.amazon_link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="amazon-cta"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Buy on Amazon
+          </a>
+          <p class="amazon-disclaimer">Secure checkout via our official Amazon Brand Store.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Detail Cards -->
+    {% if section.blocks.size > 0 %}
+      <div class="detail-cards">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'detail_card' %}
+              <div class="detail-card" {{ block.shopify_attributes }}>
+                {% if block.settings.icon == 'shield' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                {% elsif block.settings.icon == 'zap' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                {% elsif block.settings.icon == 'info' %}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                {% endif %}
+                <h4 class="card-title serif">{{ block.settings.title }}</h4>
+                <p class="card-text">{{ block.settings.text }}</p>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .product-detail-section {
+    padding: 10rem 0 8rem;
+    background-color: white;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 4rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    transition: gap 0.3s;
+  }
+
+  .back-link:hover {
+    gap: 0.75rem;
+  }
+
+  .product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    margin-bottom: 8rem;
+  }
+
+  @media (min-width: 1024px) {
+    .product-detail-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+    }
+  }
+
+  .product-detail-image {
+    position: sticky;
+    top: 10rem;
+    height: fit-content;
+  }
+
+  .product-detail-image > div {
+    position: relative;
+  }
+
+  .image-shadow {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(45, 90, 39, 0.05);
+    border-radius: 3.5rem;
+    transform: rotate(2deg);
+  }
+
+  .product-detail-image img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 3.5rem;
+    box-shadow: 0 50px 100px -20px rgba(26, 46, 38, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 3.5rem;
+    background-color: var(--color-background);
+    position: relative;
+  }
+
+  .product-badge {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-title {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .product-scent {
+    color: var(--color-secondary);
+  }
+
+  .product-desc {
+    font-size: 1.25rem;
+    color: rgba(26, 46, 38, 0.7);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .features-section,
+  .use-cases-section,
+  .sizes-section {
+    margin-bottom: 4rem;
+  }
+
+  .features-heading,
+  .use-cases-heading,
+  .sizes-heading {
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+    opacity: 0.4;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--color-background);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(26, 46, 38, 0.05);
+    box-shadow: 0 2px 8px rgba(26, 46, 38, 0.05);
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    box-shadow: 0 8px 20px rgba(26, 46, 38, 0.1);
+  }
+
+  .feature-card svg {
+    flex-shrink: 0;
+    color: var(--color-secondary);
+    margin-top: 0.125rem;
+  }
+
+  .feature-card span {
+    font-weight: 500;
+    color: var(--color-primary);
+    opacity: 0.9;
+  }
+
+  .use-cases-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .use-case-tag {
+    background-color: white;
+    border: 1px solid rgba(45, 90, 39, 0.2);
+    color: var(--color-secondary);
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .sizes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .size-badge {
+    background-color: rgba(26, 46, 38, 0.05);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .amazon-cta {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.75rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 30px 60px -10px rgba(26, 46, 38, 0.3);
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+  }
+
+  .amazon-cta:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  .amazon-disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.4;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+
+  .detail-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .detail-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .detail-card {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(26, 46, 38, 0.05);
+    box-shadow: 0 4px 12px rgba(26, 46, 38, 0.05);
+    transition: all 0.3s;
+  }
+
+  .detail-card:hover {
+    box-shadow: 0 20px 60px -10px rgba(26, 46, 38, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .detail-card svg {
+    color: var(--color-accent);
+    margin-bottom: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .card-text {
+    color: rgba(26, 46, 38, 0.6);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Detail",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Back Navigation"
+    },
+    {
+      "type": "url",
+      "id": "back_link",
+      "label": "Back Link URL"
+    },
+    {
+      "type": "text",
+      "id": "back_text",
+      "label": "Back Link Text",
+      "default": "Back to Arsenal"
+    },
+    {
+      "type": "header",
+      "content": "Product Information"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Concentrated Formula"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Product Name",
+      "default": "Concentrated Pine Oil"
+    },
+    {
+      "type": "text",
+      "id": "scent",
+      "label": "Scent Name",
+      "default": "Original Black"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "textarea",
+      "id": "features",
+      "label": "Features (comma separated)"
+    },
+    {
+      "type": "textarea",
+      "id": "use_cases",
+      "label": "Use Cases (comma separated)"
+    },
+    {
+      "type": "textarea",
+      "id": "sizes",
+      "label": "Available Sizes (comma separated)",
+      "default": "8 oz, 12 oz, 16 oz, 32 oz, Bulk Packs"
+    },
+    {
+      "type": "url",
+      "id": "amazon_link",
+      "label": "Amazon Purchase Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "detail_card",
+      "name": "Detail Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "shield", "label": "Shield (Compliance)" },
+            { "value": "zap", "label": "Zap (Power)" },
+            { "value": "info", "label": "Info (Usage)" }
+          ],
+          "default": "shield"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Detail"
+    }
+  ]
+}
+{% endschema %}
