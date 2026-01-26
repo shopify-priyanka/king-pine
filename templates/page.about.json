@@ -8,13 +8,61 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "about_page": {
-            "type": "about-page",
-            "settings": {}
+  "sections": {
+    "about_page": {
+      "type": "about-page",
+      "blocks": {
+        "value_card_D8zAHy": {
+          "type": "value_card",
+          "settings": {
+            "icon": "history",
+            "title": "Eighty Years",
+            "text": "Uninterrupted manufacturing excellence in the USA since 1939."
+          }
+        },
+        "value_card_GGMmB7": {
+          "type": "value_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Professional Grade",
+            "text": "Formulas battle-tested in the world's most demanding industries."
+          }
+        },
+        "value_card_XW96Uf": {
+          "type": "value_card",
+          "settings": {
+            "icon": "target",
+            "title": "Extreme Purity",
+            "text": "High-concentration pine oil distillates for maximum cleaning power."
+          }
+        },
+        "value_card_CMgRxN": {
+          "type": "value_card",
+          "settings": {
+            "icon": "users",
+            "title": "Legacy Trust",
+            "text": "Passed down through generations of families and business owners."
+          }
         }
-    },
-    "order": [
-        "about_page"
-    ]
+      },
+      "block_order": [
+        "value_card_D8zAHy",
+        "value_card_GGMmB7",
+        "value_card_XW96Uf",
+        "value_card_CMgRxN"
+      ],
+      "settings": {
+        "badge": "Our Foundation",
+        "heading": "Eighty Years of\nAbsolute Clean.",
+        "subheading": "Since 1939, King Pine has remained a steadfast household name, proving that industrial-grade strength and natural integrity are timeless.",
+        "story_heading": "Authenticity in\nEvery Bottle.",
+        "story_text": "<p>Founded during a pivotal era in industrial chemistry, King Pine stood apart by doubling down on the natural solvent power of pine oil. We didn't want to just create another soap; we wanted to provide a standard for professional sanitization.</p><p>The original formula, King Pine Original Black, remains nearly unchanged today—a testament to the engineering brilliance of our founders and the enduring nature of our core ingredients.</p><p>Today, our family-led operation continues to honor those 1939 values: transparency, uncompromising concentration, and a commitment to the heavy-duty results that professionals and families depend on.</p>",
+        "quote_text": "True cleanliness doesn't hide behind artificial perfumes. It begins with the authentic power of pine oil.",
+        "quote_attribution": "The King Pine Family Standard"
+      }
+    }
+  },
+  "order": [
+    "about_page"
+  ]
 }
