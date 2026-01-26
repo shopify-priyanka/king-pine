@@ -22,15 +22,6 @@
         "button_secondary_link": "/pages/where-to-buy"
       }
     },
-    "featured-products": {
-      "type": "featured-products",
-      "settings": {
-        "heading": "Our Product Families",
-        "description": "Three distinct concentrations. One standard of absolute industrial power. Crafted for professionals, perfected for the home.",
-        "collection": "frontpage",
-        "products_to_show": 3
-      }
-    },
     "benefits": {
       "type": "benefits",
       "blocks": {
@@ -174,7 +165,6 @@
   },
   "order": [
     "hero",
-    "featured-products",
     "benefits",
     "comparison",
     "use-cases",
