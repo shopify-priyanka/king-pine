@@ -11,6 +11,37 @@
   "sections": {
     "product_detail": {
       "type": "product-detail",
+      "blocks": {
+        "detail_card_mEGRVX": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Environmental Compliance",
+            "text": "Engineered for professionals who prioritize both results and responsibility. Our phosphorus-free formula ensures heavy-duty cleanup without compromising environment standards."
+          }
+        },
+        "detail_card_Xp8zYF": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "zap",
+            "title": "Concentration Matrix",
+            "text": "King Pine delivers maximum active ingredients. This results in superior grease emulsification and allows for strategic dilution based on task intensity."
+          }
+        },
+        "detail_card_q8FTXV": {
+          "type": "detail_card",
+          "settings": {
+            "icon": "info",
+            "title": "Technical Usage",
+            "text": "Optimized for use with floor scrubbers, industrial sprayers, or traditional mopping systems. Neutralizes odors at the source for a truly sanitary finish."
+          }
+        }
+      },
+      "block_order": [
+        "detail_card_mEGRVX",
+        "detail_card_Xp8zYF",
+        "detail_card_q8FTXV"
+      ],
       "settings": {
         "back_link": "shopify://pages/products",
         "back_text": "Back to All Products",
