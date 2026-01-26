@@ -8,13 +8,68 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "products_list": {
-            "type": "products-list",
-            "settings": {}
+  "sections": {
+    "products_list": {
+      "type": "products-list",
+      "blocks": {
+        "product_item_BdCp3V": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_3_2.png",
+            "scent": "Original Black",
+            "name": "Concentrated Pine Oil",
+            "description": "Our flagship formula, King Pine Original Black, provides unmatched cleaning power. Made with natural pine oil, this industrial-strength concentrate breaks down grease and grime while leaving a deep, authentic pine scent that signifies true cleanliness.",
+            "features": "Industrial strength concentrated formula, Breaks down heavy grease and wax buildup, Deodorizes and freshens naturally, No phosphorous",
+            "detail_text": "View Technical Details",
+            "detail_link": "shopify://pages/product-detail-original-black",
+            "amazon_link": "https://www.amazon.com/KING-PINE-Concentrated-Pine-Cleaner/dp/B078JYP3H4/"
+          }
+        },
+        "product_item_DKqpFj": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_1.png",
+            "scent": "Gold Pine",
+            "name": "Concentrated Gold Pine Oil",
+            "description": "Gold Pine offers a brighter, fresher take on our classic pine formula. It maintains the same heavy-duty grease-cutting capabilities but with a long-lasting scent profile designed for modern homes and professional environments alike.",
+            "features": "Fresh long-lasting pine fragrance,\n      Superior grease-cutting formula,\n      Multi-surface versatility,\n      Concentrated value,\n      Leaves no dulling residue",
+            "detail_text": "View Technical Details",
+            "detail_link": "shopify://pages/product-detail-gold-pine",
+            "amazon_link": "https://www.amazon.com/dp/B07DFQGVQR/"
+          }
+        },
+        "product_item_ntQGjr": {
+          "type": "product_item",
+          "settings": {
+            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_3_1.png",
+            "scent": "Lavender",
+            "name": "Concentrated Multi-Surface Cleaner",
+            "description": "Experience the trusted power of King Pine with a calming lavender fragrance. This industrial-strength multi-surface cleaner handles the toughest tasks while providing an aromatic experience that transforms any space.",
+            "features": "Industrial strength cleaning power,\n      Soothing natural lavender scent,\n      Effective on multi-surfaces,\n      Safe and effective for heavy-duty use,",
+            "detail_text": "View Technical Details",
+            "detail_link": "shopify://pages/product-detail-lavender",
+            "amazon_link": "https://www.amazon.com/King-Pine-Professional-Concentrated-Multi-Surface/dp/B0DJN6XLHZ/"
+          }
         }
-    },
-    "order": [
-        "products_list"
-    ]
+      },
+      "block_order": [
+        "product_item_BdCp3V",
+        "product_item_DKqpFj",
+        "product_item_ntQGjr"
+      ],
+      "settings": {
+        "badge_text": "Industrial Solutions",
+        "heading": "Our Cleaning Arsenal",
+        "description": "Each formula is engineered with high concentrations of natural pine oil, delivering the heavy-duty performance that has defined the King Pine standard for over eight decades.",
+        "show_bulk_section": true,
+        "bulk_heading": "Bulk Industrial Supply",
+        "bulk_description": "We offer strategic fulfillment for janitorial distributors, schools, hospitals, and heavy manufacturing facilities requiring large-scale solutions.",
+        "bulk_button_text": "Request a Commercial Quote",
+        "bulk_button_link": ""
+      }
+    }
+  },
+  "order": [
+    "products_list"
+  ]
 }
