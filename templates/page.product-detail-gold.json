@@ -45,15 +45,15 @@
       "settings": {
         "back_link": "shopify://pages/products",
         "back_text": "Back to All Products",
-        "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_3_1.png",
-        "badge": "Concentrated Formula",
-        "name": "Concentrated Multi-Surface Cleaner",
-        "scent": "Lavender",
-        "description": "Experience the trusted power of King Pine with a calming lavender fragrance. This industrial-strength multi-surface cleaner handles the toughest tasks while providing an aromatic experience that transforms any space.",
-        "features": "Industrial strength cleaning power,\n      Soothing natural lavender scent,\n      Effective on multi-surfaces,\n      Safe and effective for heavy-duty use,",
-        "use_cases": "Restrooms,\nInstitutions,\nFarms,\nSchools,\nLobbies",
-        "sizes": "16 oz, 32 oz",
-        "amazon_link": "https://www.amazon.com/King-Pine-Professional-Concentrated-Multi-Surface/dp/B0DJN6XLHZ/"
+        "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_1.png",
+        "badge": "Gold Pine Edition",
+        "name": "Concentrated  Pine Oil",
+        "scent": "Gold",
+        "description": "Gold Pine offers a brighter, fresher take on our classic pine formula. It maintains the same heavy-duty grease-cutting capabilities but with a long-lasting scent profile designed for modern homes and professional environments alike.",
+        "features": "Fresh long-lasting pine fragrance,\n      Superior grease-cutting formula,\n      Multi-surface versatility,\n      Concentrated value,\n      Leaves no dulling residue",
+        "use_cases": "Kitchens,\nBathrooms,\nJanitorial Services,\nWalls,\nLockers",
+        "sizes": "8 Fl Oz,\n12 Fl Oz ,\n16 Fl Oz ,\n20 Ounce ,\n32 Fl Oz ,\n64 Fl Oz ,\n128 Fl Oz ,\nPack of 2,",
+        "amazon_link": "https://www.amazon.com/dp/B07DFQGVQR/"
       }
     }
   },
