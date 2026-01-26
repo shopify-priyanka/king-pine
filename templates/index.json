@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "background_image": "shopify://shop_images/ChatGPT_Image_Jan_25_2026_08_43_06_AM_1_7a7e1c6e-106b-46c4-ac51-20bc71aa9239.png",
+        "background_image": "shopify://shop_images/ChatGPT_Image_Jan_26_2026_09_15_59_PM_1.png",
         "badge_text": "Trusted Excellence Since 1939",
         "heading": "The King\nof Clean.",
         "subheading": "Industrial-strength power met with the natural essence of pine. A legacy built on concentration, reliability, and uncompromising results.",
@@ -30,7 +30,7 @@
           "settings": {
             "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_2.png",
             "scent": "Original Black",
-            "name": "King Pine Original",
+            "name": "Black Pine",
             "short_description": "The legendary industrial-strength cleaner since 1939.",
             "learn_more_text": "Learn More",
             "learn_more_link": "/pages/king-pine-original-black"
@@ -41,7 +41,7 @@
           "settings": {
             "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_1.png",
             "scent": "Gold Pine",
-            "name": "King Pine Gold",
+            "name": "Gold Pine",
             "short_description": "Where elegance meets industrial power.",
             "learn_more_text": "Learn More",
             "learn_more_link": "/pages/king-pine-gold-pine"
@@ -50,9 +50,9 @@
         "product-3": {
           "type": "product_card",
           "settings": {
-            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_3.png",
+            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500_befd4f15-0740-41ef-ab63-4dcd9fbde30a_3_1.png",
             "scent": "Lavender",
-            "name": "King Pine Lavender",
+            "name": "Lavender Scent",
             "short_description": "Industrial cleaning with calming aromatherapy.",
             "learn_more_text": "Learn More",
             "learn_more_link": "/pages/king-pine-lavender"
