@@ -21,7 +21,7 @@
         "type": "header",
         "settings": {
           "logo": "shopify://shop_images/ChatGPT_Image_Jan_25_2026_08_44_30_AM_1847769c-1d95-406f-af02-7403b2f4a022.png",
-          "menu": "main-menu",
+          "menu": "main-menu-1",
           "enable_sticky_header": true,
           "show_cta_button": true,
           "cta_button_text": "Buy on Amazon",
