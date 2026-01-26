@@ -8,13 +8,59 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "where_to_buy": {
-            "type": "where-to-buy-page",
-            "settings": {}
+  "sections": {
+    "where_to_buy": {
+      "type": "where-to-buy-page",
+      "blocks": {
+        "wholesale_item_rcqkNc": {
+          "type": "wholesale_item",
+          "settings": {
+            "title": "Janitorial Distribution",
+            "subtitle": "Strategic supply for sanitation specialists"
+          }
+        },
+        "wholesale_item_JCGMqR": {
+          "type": "wholesale_item",
+          "settings": {
+            "title": "Healthcare & Institutional",
+            "subtitle": "Reliable sanitization for clinics and schools"
+          }
+        },
+        "wholesale_item_d4YABR": {
+          "type": "wholesale_item",
+          "settings": {
+            "title": "Manufacturing Support",
+            "subtitle": "Grease management for factory maintenance"
+          }
         }
-    },
-    "order": [
-        "where_to_buy"
-    ]
+      },
+      "block_order": [
+        "wholesale_item_rcqkNc",
+        "wholesale_item_JCGMqR",
+        "wholesale_item_d4YABR"
+      ],
+      "settings": {
+        "badge": "Global Availability",
+        "heading": "Where to Buy",
+        "description": "King Pine is accessible globally via our official Amazon Brand Storefront, offering guaranteed authenticity and accelerated shipping.",
+        "amazon_title": "Official Brand Store",
+        "amazon_description": "Access the complete range of Original Black, Gold Pine, and Lavender concentrates. Available in 8oz, 16oz, 32oz, and exclusive multi-pack bundles.",
+        "feature_1": "Prime Fast-Track Fulfillment",
+        "feature_2": "Commercial Size & Bulk Multi-Packs",
+        "feature_3": "Official Factory Direct Authenticity",
+        "amazon_link": "https://www.amazon.com/s?srs=20440434011&rh=p_89%3AKing%2BPine",
+        "wholesale_title": "Wholesale & Industrial",
+        "wholesale_description": "We provide enterprise-level solutions for hospitality chains, healthcare institutions, and industrial distributors requiring pallet-scale fulfillment.",
+        "wholesale_button_text": "Inquire About Bulk Orders",
+        "wholesale_link": "shopify://pages/contact-1",
+        "show_global_section": true,
+        "global_heading": "Global Footprint",
+        "global_text": "",
+        "global_image": "shopify://shop_images/photo-1521295121783-8a321d551ad2.avif"
+      }
+    }
+  },
+  "order": [
+    "where_to_buy"
+  ]
 }
