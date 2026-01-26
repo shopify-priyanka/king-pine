@@ -17,9 +17,9 @@
         "heading": "The King\nof Clean.",
         "subheading": "Industrial-strength power met with the natural essence of pine. A legacy built on concentration, reliability, and uncompromising results.",
         "button_primary_text": "Explore Products",
-        "button_primary_link": "/collections/all",
+        "button_primary_link": "shopify://pages/products",
         "button_secondary_text": "Where to Buy",
-        "button_secondary_link": "/pages/where-to-buy"
+        "button_secondary_link": "shopify://pages/where-to-buy"
       }
     },
     "featured-products": {
@@ -33,7 +33,7 @@
             "name": "Black Pine",
             "short_description": "The legendary industrial-strength cleaner since 1939.",
             "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-original-black"
+            "learn_more_link": "shopify://pages/product-detail-original-black"
           }
         },
         "product-2": {
@@ -44,7 +44,7 @@
             "name": "Gold Pine",
             "short_description": "Where elegance meets industrial power.",
             "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-gold-pine"
+            "learn_more_link": "shopify://pages/product-detail-gold-pine"
           }
         },
         "product-3": {
@@ -55,7 +55,7 @@
             "name": "Lavender Scent",
             "short_description": "Industrial cleaning with calming aromatherapy.",
             "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-lavender"
+            "learn_more_link": "shopify://pages/product-detail-lavender"
           }
         }
       },
@@ -198,7 +198,7 @@
         "heading": "Built to Last.",
         "description": "<p>In 1939, King Pine was founded on a simple premise: a cleaner should be as powerful as the natural elements it contains. Decades of change haven't altered our original formula's efficacy. Today, we remain the first choice for those who demand absolute cleanliness.</p>",
         "button_text": "Discover Our Heritage",
-        "button_link": "/pages/about"
+        "button_link": "shopify://pages/about"
       }
     },
     "cta": {
@@ -207,7 +207,7 @@
         "heading": "Experience the Clean.",
         "description": "Conveniently available in single units and bulk multi-packs via our official Amazon marketplace.",
         "button_text": "Buy King Pine on Amazon",
-        "button_link": "/pages/where-to-buy"
+        "button_link": "https://www.amazon.com/s?srs=20440434011&rh=p_89%3AKing%2BPine"
       }
     }
   },
