@@ -8,13 +8,52 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "contact_page": {
-            "type": "contact-page",
-            "settings": {}
+  "sections": {
+    "contact_page": {
+      "type": "contact-page",
+      "blocks": {
+        "contact_info_MfBp4R": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "mail",
+            "title": "Direct CorrespondenceGeneral:",
+            "text": "info@kingpinecleaning.comSales & Bulk:",
+            "subtext": "commerce@kingpinecleaning.com"
+          }
+        },
+        "contact_info_QFJGij": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "mail",
+            "title": "Commercial Support",
+            "text": "+1 (800) KING-PINE",
+            "subtext": "Operations: Monday – Friday, 9am – 5pm EST"
+          }
+        },
+        "contact_info_bnfNhe": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "mail",
+            "title": "Global Headquarters",
+            "text": "King Pine Products Corporation",
+            "subtext": "USA Manufacturing Excellence Since 1939"
+          }
         }
-    },
-    "order": [
-        "contact_page"
-    ]
+      },
+      "block_order": [
+        "contact_info_MfBp4R",
+        "contact_info_QFJGij",
+        "contact_info_bnfNhe"
+      ],
+      "settings": {
+        "badge": "Connect With Us",
+        "heading": "Get in Touch",
+        "subheading": "Our team of cleaning specialists is available to discuss product specifications, safety data, and commercial fulfillment.",
+        "form_heading": "Send an Inquiry"
+      }
+    }
+  },
+  "order": [
+    "contact_page"
+  ]
 }
