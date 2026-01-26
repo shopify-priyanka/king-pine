@@ -115,8 +115,12 @@
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+  }
+
+  .header-nav.scrolled .header-logo .logo-link {
     color: var(--color-primary);
-    transition: transform 0.3s;
   }
 
   .header-logo .logo-link:hover {
@@ -124,13 +128,18 @@
   }
 
   .logo-icon {
-    background-color: var(--color-secondary);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 0.375rem;
     border-radius: 0.25rem;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .header-nav.scrolled .logo-icon {
+    background-color: var(--color-secondary);
   }
 
   .logo-title {
@@ -165,10 +174,14 @@
   .nav-link {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-text);
+    color: white;
     text-decoration: none;
     position: relative;
     transition: color 0.3s;
+  }
+
+  .header-nav.scrolled .nav-link {
+    color: var(--color-text);
   }
 
   .nav-link::after {
@@ -178,12 +191,21 @@
     left: 0;
     width: 0;
     height: 2px;
+    background-color: white;
+    transition: all 0.3s;
+  }
+
+  .header-nav.scrolled .nav-link::after {
     background-color: var(--color-secondary);
-    transition: width 0.3s;
   }
 
   .nav-link:hover,
   .nav-link-active {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .header-nav.scrolled .nav-link:hover,
+  .header-nav.scrolled .nav-link-active {
     color: var(--color-secondary);
   }
 
@@ -216,8 +238,12 @@
   .hamburger-line {
     width: 24px;
     height: 2px;
-    background-color: var(--color-primary);
+    background-color: white;
     transition: all 0.3s;
+  }
+
+  .header-nav.scrolled .hamburger-line {
+    background-color: var(--color-primary);
   }
 
   .header-mobile-menu {
