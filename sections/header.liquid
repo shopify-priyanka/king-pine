@@ -288,12 +288,23 @@
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  // Check if we're on the homepage
+  const isHomepage = window.location.pathname === '/' || window.location.pathname === '';
+
+  // If not homepage, always add scrolled class for dark nav
+  if (!isHomepage) {
+    headerNav.classList.add('scrolled');
+  }
+
   // Sticky header on scroll
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      headerNav.classList.add('scrolled');
-    } else {
-      headerNav.classList.remove('scrolled');
+    // Only toggle white/dark on homepage
+    if (isHomepage) {
+      if (window.scrollY > 20) {
+        headerNav.classList.add('scrolled');
+      } else {
+        headerNav.classList.remove('scrolled');
+      }
     }
   });
 

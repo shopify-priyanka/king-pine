@@ -38,11 +38,12 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
               >
-                <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z"></path>
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
-              {{ section.settings.feature_1 }}
+              <span>{{ section.settings.feature_1 }}</span>
             </div>
           {% endif %}
           {% if section.settings.feature_2 != blank %}
@@ -54,14 +55,12 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
               >
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
-              {{ section.settings.feature_2 }}
+              <span>{{ section.settings.feature_2 }}</span>
             </div>
           {% endif %}
           {% if section.settings.feature_3 != blank %}
@@ -73,12 +72,12 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
               >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="m9 12 2 2 4-4"></path>
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
-              {{ section.settings.feature_3 }}
+              <span>{{ section.settings.feature_3 }}</span>
             </div>
           {% endif %}
         </div>
@@ -266,41 +265,36 @@
   }
 
   .features-list {
-    width: 100%;
-    text-align: left;
-    background-color: var(--color-background);
-    padding: 2rem;
-    border-radius: 2rem;
+    width: 100%;\n    text-align: left;
+    background-color: transparent;
+    padding: 0;
     margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .feature {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.875rem;
-  }
-
-  .feature:last-child {
-    margin-bottom: 0;
+    gap: 1rem;
+    padding: 1.25rem;
+    background-color: var(--color-background);
+    border-radius: 1rem;
+    font-size: 0.9375rem;
   }
 
   .feature svg {
     flex-shrink: 0;
-    color: var(--color-accent);
-    padding: 0.5rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(26, 46, 38, 0.05);
+    color: var(--color-secondary);
+    width: 20px;
+    height: 20px;
   }
 
   .feature span {
-    font-weight: 700;
-    opacity: 0.7;
-    text-transform: uppercase;
-    font-size: 0.625rem;
-    letter-spacing: 0.05em;
+    font-weight: 500;
+    color: var(--color-primary);
+    opacity: 0.9;
   }
 
   .amazon-btn {
@@ -359,7 +353,7 @@
     border-radius: 1.5rem;
     display: flex;
     align-items: center;
-    justify-center;
+    justify-content: center;
     margin-bottom: 2.5rem;
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
   }
