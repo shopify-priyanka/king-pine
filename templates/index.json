@@ -22,6 +22,54 @@
         "button_secondary_link": "/pages/where-to-buy"
       }
     },
+    "featured-products": {
+      "type": "featured-products-info",
+      "blocks": {
+        "product-1": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/81KncDvKKbL._AC_SL1500_c6ba7c4e-d077-400f-8432-6d77eef10bdf.jpg",
+            "scent": "Original Black",
+            "name": "King Pine Original",
+            "short_description": "The legendary industrial-strength cleaner since 1939.",
+            "learn_more_text": "Learn More",
+            "learn_more_link": "/pages/king-pine-original-black"
+          }
+        },
+        "product-2": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/71NTo3-JdWL._AC_SL1500.jpg",
+            "scent": "Gold Pine",
+            "name": "King Pine Gold",
+            "short_description": "Where elegance meets industrial power.",
+            "learn_more_text": "Learn More",
+            "learn_more_link": "/pages/king-pine-gold-pine"
+          }
+        },
+        "product-3": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/81yFC4FMjML._AC_SL1500.jpg",
+            "scent": "Lavender",
+            "name": "King Pine Lavender",
+            "short_description": "Industrial cleaning with calming aromatherapy.",
+            "learn_more_text": "Learn More",
+            "learn_more_link": "/pages/king-pine-lavender"
+          }
+        }
+      },
+      "block_order": [
+        "product-1",
+        "product-2",
+        "product-3"
+      ],
+      "settings": {
+        "badge_text": "Our Product Families",
+        "heading": "Concentrated Excellence",
+        "description": "Three distinct formulas, each engineered to deliver industrial-strength cleaning power."
+      }
+    },
     "benefits": {
       "type": "benefits",
       "blocks": {
@@ -70,51 +118,6 @@
         "description": "Since 1939, King Pine has defined the benchmark for concentrated cleaning. We don't just clean surfaces; we restore environments.",
         "image": "shopify://shop_images/ChatGPT_Image_Jan_25_2026_05_27_23_PM.png",
         "show_badge": true
-      }
-    },
-    "featured-products": {
-      "type": "featured-products-info",
-      "blocks": {
-        "product-1": {
-          "type": "product_card",
-          "settings": {
-            "scent": "Original Black",
-            "name": "King Pine Original",
-            "short_description": "The legendary industrial-strength cleaner since 1939.",
-            "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-original-black"
-          }
-        },
-        "product-2": {
-          "type": "product_card",
-          "settings": {
-            "scent": "Gold Pine",
-            "name": "King Pine Gold",
-            "short_description": "Where elegance meets industrial power.",
-            "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-gold-pine"
-          }
-        },
-        "product-3": {
-          "type": "product_card",
-          "settings": {
-            "scent": "Lavender",
-            "name": "King Pine Lavender",
-            "short_description": "Industrial cleaning with calming aromatherapy.",
-            "learn_more_text": "Learn More",
-            "learn_more_link": "/pages/king-pine-lavender"
-          }
-        }
-      },
-      "block_order": [
-        "product-1",
-        "product-2",
-        "product-3"
-      ],
-      "settings": {
-        "badge_text": "Our Product Families",
-        "heading": "Concentrated Excellence",
-        "description": "Three distinct formulas, each engineered to deliver industrial-strength cleaning power."
       }
     },
     "comparison": {
@@ -210,8 +213,8 @@
   },
   "order": [
     "hero",
-    "benefits",
     "featured-products",
+    "benefits",
     "comparison",
     "use-cases",
     "text-content",
