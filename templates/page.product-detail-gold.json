@@ -12,6 +12,13 @@
     "product_detail": {
       "type": "product-detail",
       "blocks": {
+        "size_option_W9HaUk": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "8 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/MP-28-DARKCLEAN.pdf?v=1770286184"
+          }
+        },
         "detail_card_mEGRVX": {
           "type": "detail_card",
           "settings": {
@@ -38,6 +45,7 @@
         }
       },
       "block_order": [
+        "size_option_W9HaUk",
         "detail_card_mEGRVX",
         "detail_card_Xp8zYF",
         "detail_card_q8FTXV"
@@ -52,7 +60,6 @@
         "description": "Gold Pine offers a brighter, fresher take on our classic pine formula. It maintains the same heavy-duty grease-cutting capabilities but with a long-lasting scent profile designed for modern homes and professional environments alike.",
         "features": "Fresh long-lasting pine fragrance,\n      Superior grease-cutting formula,\n      Multi-surface versatility,\n      Concentrated value,\n      Leaves no dulling residue",
         "use_cases": "Kitchens,\nBathrooms,\nJanitorial Services,\nWalls,\nLockers",
-        "sizes": "8 Fl Oz,\n12 Fl Oz ,\n16 Fl Oz ,\n32 Fl Oz",
         "amazon_link": "https://www.amazon.com/dp/B07DFQGVQR/"
       }
     }
