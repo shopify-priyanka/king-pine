@@ -100,15 +100,43 @@
         {% endif %}
 
         <!-- Sizes -->
-        {% if section.settings.sizes != blank %}
+        {% assign size_blocks = section.blocks | where: 'type', 'size_option' %}
+        {% if size_blocks.size > 0 %}
           <div class="sizes-section">
             <h3 class="sizes-heading">Fulfillment Formats</h3>
             <div class="sizes-list">
-              {% assign sizes = section.settings.sizes | split: ',' %}
-              {% for size in sizes %}
-                <div class="size-badge">{{ size | strip }}</div>
+              {% for block in size_blocks %}
+                {% if block.settings.pdf_url != blank %}
+                  <a
+                    href="{{ block.settings.pdf_url }}"
+                    download
+                    class="size-badge size-badge-clickable"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.size_name | strip }}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      class="download-icon"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </a>
+                {% else %}
+                  <div class="size-badge" {{ block.shopify_attributes }}>
+                    {{ block.settings.size_name | strip }}
+                  </div>
+                {% endif %}
               {% endfor %}
             </div>
+            <p class="sizes-info">Click on any size to download the specification sheet PDF</p>
           </div>
         {% endif %}
 
@@ -383,6 +411,43 @@
     font-weight: 700;
     font-size: 0.875rem;
     opacity: 0.8;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .size-badge-clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-primary);
+    background-color: rgba(45, 90, 39, 0.08);
+  }
+
+  .size-badge-clickable:hover {
+    background-color: var(--color-primary);
+    color: white;
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 46, 38, 0.2);
+    border-color: var(--color-primary);
+  }
+
+  .download-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .size-badge-clickable:hover .download-icon {
+    transform: translateY(2px);
+  }
+
+  .sizes-info {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: rgba(26, 46, 38, 0.5);
+    font-style: italic;
   }
 
   .amazon-cta {
@@ -523,18 +588,31 @@
       "label": "Use Cases (comma separated)"
     },
     {
-      "type": "textarea",
-      "id": "sizes",
-      "label": "Available Sizes (comma separated)",
-      "default": "8 oz, 12 oz, 16 oz, 32 oz, Bulk Packs"
-    },
-    {
       "type": "url",
       "id": "amazon_link",
       "label": "Amazon Purchase Link"
     }
   ],
   "blocks": [
+    {
+      "type": "size_option",
+      "name": "Size Option",
+      "settings": [
+        {
+          "type": "text",
+          "id": "size_name",
+          "label": "Size Name",
+          "default": "8 oz",
+          "info": "e.g., '8 oz', '12 oz', '16 oz', 'Bulk Packs'"
+        },
+        {
+          "type": "text",
+          "id": "pdf_url",
+          "label": "PDF Download URL",
+          "info": "Upload a PDF to Files and paste the URL here. Leave blank if no PDF is available for this size."
+        }
+      ]
+    },
     {
       "type": "detail_card",
       "name": "Detail Card",

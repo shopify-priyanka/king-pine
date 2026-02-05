@@ -27,18 +27,24 @@
           {% endif %}
         </div>
 
-        <div class="story-image">
-          <div class="image-decoration"></div>
-          {% if section.settings.story_image != blank %}
-            <img
-              src="{{ section.settings.story_image | image_url: width: 1000 }}"
-              alt="Our Heritage"
+        <div class="story-video">
+          <div class="video-decoration"></div>
+          {% if section.settings.story_video_file != blank %}
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
               width="1000"
               height="800"
-              loading="lazy"
             >
+              <source src="{{ section.settings.story_video_file }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          {% elsif section.settings.story_video_url != blank %}
+            {{ section.settings.story_video_url | video_tag: autoplay: true, loop: true, muted: true }}
           {% else %}
-            <div class="image-placeholder">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>
+            <div class="video-placeholder">{{ 'lifestyle-1' | placeholder_svg_tag }}</div>
           {% endif %}
         </div>
       </div>
@@ -216,11 +222,11 @@
     margin-bottom: 2.5rem;
   }
 
-  .story-image {
+  .story-video {
     position: relative;
   }
 
-  .image-decoration {
+  .video-decoration {
     position: absolute;
     inset: 0;
     background-color: rgba(164, 124, 72, 0.05);
@@ -228,7 +234,7 @@
     transform: rotate(-3deg);
   }
 
-  .story-image img {
+  .story-video video {
     position: relative;
     width: 100%;
     border-radius: 4rem;
@@ -236,7 +242,7 @@
     border: 8px solid white;
   }
 
-  .image-placeholder {
+  .video-placeholder {
     position: relative;
     width: 100%;
     aspect-ratio: 4/5;
@@ -371,9 +377,17 @@
       "label": "Story Text"
     },
     {
-      "type": "image_picker",
-      "id": "story_image",
-      "label": "Story Image"
+      "type": "text",
+      "id": "story_video_file",
+      "label": "Story Video File URL",
+      "info": "Upload a video file to Files and paste the URL here (e.g., .mp4 file)"
+    },
+    {
+      "type": "video_url",
+      "id": "story_video_url",
+      "label": "Story Video URL (YouTube/Vimeo)",
+      "accept": ["youtube", "vimeo"],
+      "info": "Alternative: Paste a YouTube or Vimeo URL here"
     },
     {
       "type": "header",
