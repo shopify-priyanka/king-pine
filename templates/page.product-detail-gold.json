@@ -19,6 +19,13 @@
             "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/MP-28-DARKCLEAN.pdf?v=1770286184"
           }
         },
+        "size_option_9V8MDc": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "16 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/MP-28-DARKCLEAN.pdf?v=1770286184"
+          }
+        },
         "detail_card_mEGRVX": {
           "type": "detail_card",
           "settings": {
@@ -46,6 +53,7 @@
       },
       "block_order": [
         "size_option_W9HaUk",
+        "size_option_9V8MDc",
         "detail_card_mEGRVX",
         "detail_card_Xp8zYF",
         "detail_card_q8FTXV"
