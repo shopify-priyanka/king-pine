@@ -12,6 +12,55 @@
     "product_detail": {
       "type": "product-detail",
       "blocks": {
+        "size_option_RxhtAt": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "8 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_erRznU": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "12 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_AcMLrT": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "16 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_iHfzXw": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "20 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_xEVxNV": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "32 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_qHyjz9": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "64 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
+        "size_option_F9jMiX": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "128 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
         "detail_card_mEGRVX": {
           "type": "detail_card",
           "settings": {
@@ -38,6 +87,13 @@
         }
       },
       "block_order": [
+        "size_option_RxhtAt",
+        "size_option_erRznU",
+        "size_option_AcMLrT",
+        "size_option_iHfzXw",
+        "size_option_xEVxNV",
+        "size_option_qHyjz9",
+        "size_option_F9jMiX",
         "detail_card_mEGRVX",
         "detail_card_Xp8zYF",
         "detail_card_q8FTXV"
@@ -52,7 +108,6 @@
         "description": "Our flagship formula, King Pine Original Black, provides unmatched cleaning power. Made with natural pine oil, this industrial-strength concentrate breaks down grease and grime while leaving a deep, authentic pine scent that signifies true cleanliness.",
         "features": "Industrial strength concentrated formula, Breaks down heavy grease and wax buildup, Deodorizes and freshens naturally, No phosphorous,Safe for heavy-duty commercial use",
         "use_cases": "Floors,\nGarbage Cans,\nFactories,\nMachinery,\nPet Areas",
-        "sizes": "8 Fl Oz,\n12 Fl Oz ,\n16 Fl Oz ,\n20 Ounce ,\n32 Fl Oz ,\n64 Fl Oz ,\n128 Fl Oz ,\nPack of 2,",
         "amazon_link": "https://www.amazon.com/KING-PINE-Concentrated-Pine-Cleaner/dp/B078JYP3H4/"
       }
     }
