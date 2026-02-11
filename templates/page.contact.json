@@ -16,9 +16,9 @@
           "type": "contact_info",
           "settings": {
             "icon": "mail",
-            "title": "Direct CorrespondenceGeneral:",
-            "text": "info@kingpinecleaning.comSales & Bulk:",
-            "subtext": "commerce@kingpinecleaning.com"
+            "title": "Direct Correspondence General:",
+            "text": "info@kingpinecleaning.com",
+            "subtext": ""
           }
         },
         "contact_info_QFJGij": {
@@ -26,7 +26,7 @@
           "settings": {
             "icon": "phone",
             "title": "Commercial Support",
-            "text": "+1 (800) KING-PINE",
+            "text": "",
             "subtext": "Operations: Monday – Friday, 9am – 5pm EST"
           }
         },
