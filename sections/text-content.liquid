@@ -1,25 +1,50 @@
 <section class="text-content-section {% if section.settings.background_color == 'white' %}bg-white{% elsif section.settings.background_color == 'cream' %}bg-cream{% else %}bg-primary{% endif %}">
   <div class="container">
-    <div class="text-content-wrapper {% if section.settings.text_alignment == 'center' %}text-center{% endif %}">
-      {% if section.settings.overline != blank %}
-        <span class="text-overline">{{ section.settings.overline }}</span>
-      {% endif %}
-
-      {% if section.settings.heading != blank %}
-        <h2 class="text-heading serif">{{ section.settings.heading }}</h2>
-      {% endif %}
-
-      {% if section.settings.description != blank %}
-        <div class="text-description">
-          {{ section.settings.description }}
+    <div class="text-content-grid {% if section.settings.video_file_url != blank or section.settings.video_external_url != blank %}has-video{% endif %}">
+      {%- if section.settings.video_file_url != blank or section.settings.video_external_url != blank -%}
+        <div class="text-content-video">
+          <div class="video-decoration"></div>
+          {%- if section.settings.video_file_url != blank -%}
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="content-video"
+            >
+              <source src="{{ section.settings.video_file_url }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          {%- elsif section.settings.video_external_url != blank -%}
+            {{
+              section.settings.video_external_url
+              | video_tag: autoplay: true, loop: true, muted: true, class: 'content-video'
+            }}
+          {%- endif -%}
         </div>
-      {% endif %}
+      {%- endif -%}
 
-      {% if section.settings.button_text != blank %}
-        <a href="{{ section.settings.button_link }}" class="text-button">
-          {{ section.settings.button_text }}
-        </a>
-      {% endif %}
+      <div class="text-content-wrapper {% if section.settings.text_alignment == 'center' and section.settings.video_file_url == blank and section.settings.video_external_url == blank %}text-center{% endif %}">
+        {% if section.settings.overline != blank %}
+          <span class="text-overline">{{ section.settings.overline }}</span>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="text-heading serif">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="text-description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="text-button">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
@@ -46,6 +71,46 @@
   .text-content-wrapper {
     max-width: 64rem;
     margin: 0 auto;
+  }
+
+  .text-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .text-content-grid.has-video {
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .text-content-grid.has-video {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .text-content-video {
+    position: relative;
+  }
+
+  .video-decoration {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(164, 124, 72, 0.05);
+    border-radius: 4rem;
+    transform: rotate(-3deg);
+  }
+
+  .content-video {
+    position: relative;
+    width: 100%;
+    border-radius: 4rem;
+    box-shadow: 0 50px 100px -20px rgba(26, 46, 38, 0.2);
+    border: 8px solid white;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   .text-center {
@@ -161,6 +226,23 @@
         }
       ],
       "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "text",
+      "id": "video_file_url",
+      "label": "Video File URL",
+      "info": "Upload an .mp4 to Files and paste the URL here."
+    },
+    {
+      "type": "video_url",
+      "id": "video_external_url",
+      "label": "External Video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "Optionally use a YouTube or Vimeo link."
     },
     {
       "type": "text",
