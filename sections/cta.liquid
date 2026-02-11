@@ -10,11 +10,21 @@
       <p class="cta-description">{{ section.settings.description }}</p>
     {% endif %}
 
-    {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_link }}" class="cta-button">
-        {{ section.settings.button_text }}
-      </a>
-    {% endif %}
+    <div class="cta-buttons">
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link }}" class="cta-button primary">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'button' %}
+          <a href="{{ block.settings.button_link }}" class="cta-button" {{ block.shopify_attributes }}>
+            {{ block.settings.button_text }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -53,24 +63,45 @@
     font-weight: 300;
   }
 
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
   .cta-button {
     display: inline-block;
-    background-color: white;
-    color: var(--color-primary);
+    background-color: transparent;
+    color: white;
     padding: 1.5rem 3.5rem;
     border-radius: 9999px;
     font-size: 1.25rem;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid white;
+  }
+
+  .cta-button.primary {
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid white;
     box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.3);
   }
 
   .cta-button:hover {
     background-color: var(--color-accent);
     color: white;
+    border-color: var(--color-accent);
     transform: translateY(-2px);
     box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .cta-button.primary:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
   }
 </style>
 
@@ -102,9 +133,29 @@
       "label": "Button Link"
     }
   ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Additional Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Call to Action"
+      "name": "Call to Action",
+      "blocks": []
     }
   ]
 }
