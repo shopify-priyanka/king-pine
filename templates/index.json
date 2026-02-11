@@ -66,7 +66,7 @@
             "name": "Golden Pine oil",
             "short_description": "The legendary industrial-strength cleaner since 1939.",
             "learn_more_text": "Learn More",
-            "learn_more_link": ""
+            "learn_more_link": "shopify://pages/product-detail-gold-pine"
           }
         },
         "product_card_yKHgEN": {
@@ -230,24 +230,24 @@
     "cta": {
       "type": "cta",
       "blocks": {
-        "button_rTnWNT": {
-          "type": "button",
-          "settings": {
-            "button_text": "Buy on Traget",
-            "button_link": "https://www.target.com/b/king-pine/-/N-q643le4wkxs"
-          }
-        },
         "button_mixVXg": {
           "type": "button",
           "settings": {
             "button_text": "Buy on Walmart",
             "button_link": "https://www.walmart.com/browse/0?facet=brand:King+Pine"
           }
+        },
+        "button_rTnWNT": {
+          "type": "button",
+          "settings": {
+            "button_text": "Buy on Traget",
+            "button_link": "https://www.target.com/b/king-pine/-/N-q643le4wkxs"
+          }
         }
       },
       "block_order": [
-        "button_rTnWNT",
-        "button_mixVXg"
+        "button_mixVXg",
+        "button_rTnWNT"
       ],
       "settings": {
         "heading": "Experience the Clean.",
