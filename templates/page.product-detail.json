@@ -12,6 +12,13 @@
     "product_detail": {
       "type": "product-detail",
       "blocks": {
+        "size_option_z3MaCb": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "16 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
         "detail_card_mEGRVX": {
           "type": "detail_card",
           "settings": {
@@ -38,6 +45,7 @@
         }
       },
       "block_order": [
+        "size_option_z3MaCb",
         "detail_card_mEGRVX",
         "detail_card_Xp8zYF",
         "detail_card_q8FTXV"
@@ -52,7 +60,6 @@
         "description": "Experience the trusted power of King Pine with a calming lavender fragrance. This industrial-strength multi-surface cleaner handles the toughest tasks while providing an aromatic experience that transforms any space.",
         "features": "Industrial strength cleaning power,\n      Soothing natural lavender scent,\n      Effective on multi-surfaces,\n      Safe and effective for heavy-duty use,",
         "use_cases": "Restrooms,\nInstitutions,\nFarms,\nSchools,\nLobbies",
-        "sizes": "16 oz, 32 oz",
         "amazon_link": "https://www.amazon.com/King-Pine-Professional-Concentrated-Multi-Surface/dp/B0DJN6XLHZ/"
       }
     }
