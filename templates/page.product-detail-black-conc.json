@@ -12,6 +12,13 @@
     "product_detail": {
       "type": "product-detail",
       "blocks": {
+        "size_option_t7URcT": {
+          "type": "size_option",
+          "settings": {
+            "size_name": "28 oz",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0724/5647/0682/files/KPBCatalog_2020.pdf?v=1770836127"
+          }
+        },
         "detail_card_mEGRVX": {
           "type": "detail_card",
           "settings": {
@@ -38,6 +45,7 @@
         }
       },
       "block_order": [
+        "size_option_t7URcT",
         "detail_card_mEGRVX",
         "detail_card_Xp8zYF",
         "detail_card_q8FTXV"
