@@ -88,6 +88,7 @@
         "product_card_Q9xHm6",
         "product_card_yKHgEN"
       ],
+      "disabled": true,
       "settings": {
         "badge_text": "Our Product Families",
         "heading": "Concentrated Excellence",
@@ -249,6 +250,7 @@
         "button_mixVXg",
         "button_rTnWNT"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Experience the Clean.",
         "description": "Conveniently available in single units and bulk multi-packs via our official Amazon marketplace.",
@@ -260,10 +262,10 @@
   "order": [
     "hero",
     "featured-products",
+    "text-content",
     "benefits",
     "comparison",
     "use-cases",
-    "text-content",
     "cta"
   ]
 }
