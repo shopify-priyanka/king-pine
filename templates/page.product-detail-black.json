@@ -65,8 +65,8 @@
           "type": "detail_card",
           "settings": {
             "icon": "shield",
-            "title": "Environmental Compliance",
-            "text": "Engineered for professionals who prioritize both results and responsibility. Our phosphorus-free formula ensures heavy-duty cleanup without compromising environment standards."
+            "title": "Sustainability",
+            "text": "Engineered for applications that prioritize both results and responsibility. Our phosphorus-free formula ensures heavy-duty cleanup without compromising any standards."
           }
         },
         "detail_card_Xp8zYF": {
@@ -81,8 +81,8 @@
           "type": "detail_card",
           "settings": {
             "icon": "info",
-            "title": "Technical Usage",
-            "text": "Optimized for use with floor scrubbers, industrial sprayers, or traditional mopping systems. Neutralizes odors at the source for a truly sanitary finish."
+            "title": "Fresh & Clean",
+            "text": "Neutralizes odors at the source for a truly sanitary finish."
           }
         }
       },
